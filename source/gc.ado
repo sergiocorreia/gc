@@ -3,7 +3,7 @@ cap pr drop gc
 pr gc
 	syntax anything
 	gettoken subcmd 0 : anything
-	if ("`subcmd'" != "new") {
+	if ("`subcmd'" != "new" & c(stata_version) >= 14) {
 		mata: assert(classname(gc) == "GC")
 	}
 
