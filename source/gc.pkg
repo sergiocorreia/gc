@@ -1,0 +1,24 @@
+v 3
+
+d gc. Garbage Collection for Stata variables (programmer command)
+d
+d Author: Sergio Correia. Fuqua School of Business, Duke University
+d Support: sergio.correia@gmail.com
+d
+d gc is just a simple counter based on -asarray()- that drops
+d a variable once its counter reaches zero.
+d
+d Thus, it can be used for simple garbage collection,
+d when trying to be careful with memory usage
+d
+d KW: asarray
+d KW: counter
+d KW: garbage collection
+d
+d Requires: Stata version 11.2
+d
+d Distribution-Date: 20160716
+d
+
+f gc.ado
+f gc.sthlp

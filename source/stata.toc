@@ -1,0 +1,9 @@
+v 3
+d Sergio Correia, Duke University (sergio.correia@gmail.com)
+p gc GC - Garbage Collection for Stata variables
+
+* l word-to-show path-or-url [description]
+* t: Directories within site:
+* t path [description]
+* Packages:
+* p pkgname [description]
