@@ -18,7 +18,10 @@
 {cmd:gc add} {varlist}
 
 {p 8 16 2}
-{cmd:gc remove} {varlist}
+{cmd:gc remove} {varlist} [{cmd:,} {cmdab:noc:ollect} ]
+
+{p 8 16 2}
+{cmd:gc collect}
 
 {p 8 16 2}
 {cmd:gc report}
@@ -29,6 +32,7 @@
 This command keeps counters for variables (in the mata object {it:gc}),
 dropping the variables from the dataset once the counter reaches 0.
 
+{pstd}
 For example: {inp}
 
         sysuse auto, clear
@@ -37,6 +41,10 @@ For example: {inp}
         gc add price turn price
         gc remove _all
         gc report{txt}
+
+{pstd}
+When removing a variable, it will try to drop now-unused variables unless you specify the {cmdab:noc:ollect} option (you can later call
+{cmd:gc collect}) to drop unused variables.
 
 {title:Author}
 

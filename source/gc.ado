@@ -1,9 +1,9 @@
 * Garbage collection with variables
 cap pr drop gc
 pr gc
-	syntax anything
-	gettoken subcmd 0 : anything
+	gettoken subcmd 0 : 0
 	if ("`subcmd'" != "new" & c(stata_version) >= 14) {
+		* -classname- is new in Stata 14
 		mata: assert(classname(gc) == "GC")
 	}
 
@@ -19,8 +19,13 @@ pr gc
 		mata: gc.add(tokens("`varlist'"))
 	}
 	else if ("`subcmd'" == "remove") {
-		syntax varlist
+		syntax varlist, [noCollect]
 		mata: gc.remove(tokens("`varlist'"))
+		if ("`collect'" != "nocollect") {
+			mata: gc.collect()
+		}
+	}
+	else if ("`subcmd'" == "collect") {
 		mata: gc.collect()
 	}
 	else {
